@@ -24,6 +24,7 @@ namespace GUI4_Shared
         public EditorWindow()
         {
             InitializeComponent();
+            // másik comment
         }
         public EditorWindow(Hero hero)
         {
