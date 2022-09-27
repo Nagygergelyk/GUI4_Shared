@@ -22,7 +22,7 @@ namespace GUI4_Shared
         public EditorWindow()
         {
             InitializeComponent();
-            // tesztcomment
+            // másik comment
         }
     }
 }
