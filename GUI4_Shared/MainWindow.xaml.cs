@@ -23,6 +23,7 @@ namespace GUI4_Shared
         public MainWindow()
         {
             InitializeComponent();
+            //ha látszik, akkor jó
         }
     }
 }
