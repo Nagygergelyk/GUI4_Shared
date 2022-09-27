@@ -7,34 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" HorizontalContentAlignment="Stretch">
-            
-        </ListBox>
-        <StackPanel Grid.Column="1">
-            <Button Content="Call him to war" Margin="10" Padding="10"/>
-            <Button Content="Bring him home" Margin="10" Padding="10"/>
-            <Button Content="Create a Hero" Margin="10" Padding="10"/>
-            <Label Content="ide jon majd az ero"  HorizontalContentAlignment="Center" />
-            <ProgressBar Height="10" Maximum="10" Value="5" Margin="10"/>
-            <Label Content="ide jon majd a speed" HorizontalContentAlignment="Center" Margin="10"/>
-            <ProgressBar Height="10" Maximum="10" Value="1" Margin="10"/>
 
-        </StackPanel>
-        <ListBox Grid.Column="2" ItemsSource="{Binding Army}" SelectedItem="{Binding SelectedFromArmy}" FontSize="16">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Type}" />
-                        <Label Content="{Binding Power}" ContentStringFormat="[{0}]" />
-                        <Label Content="{Binding Speed}" ContentStringFormat="[{0}]" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
     </Grid>
 </Window>
