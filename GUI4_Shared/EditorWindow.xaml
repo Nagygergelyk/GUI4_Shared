@@ -1,0 +1,31 @@
+﻿<Window x:Class="GUI4_Shared.EditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI4_Shared"
+        mc:Ignorable="d"
+        Title="EditorWindow" Height="350" Width="350">
+    <Grid>
+        <StackPanel>
+            <Label Content="Név:" Padding="10" Background="LightGray"/>
+            <TextBlock Padding="10"/>
+            <Label Content="Ereje:" Padding="10" Background="LightGray"/>
+            <TextBlock Padding="10"/>
+            <Label Content="Gyorsasága:" Padding="10" Background="LightGray"/>
+            <TextBlock Padding="10"/>
+            <Label Content="Hova tartozása:" Padding="10" Background="LightGray"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Grid.Column="0" Content="Jó" HorizontalAlignment="Center" VerticalContentAlignment="Center" Padding="10"/>
+                <RadioButton Grid.Column="1" Content="Rossz" HorizontalAlignment="Center" VerticalContentAlignment="Center" Padding="10" />
+                <RadioButton Grid.Column="2" Content="Semleges" HorizontalAlignment="Center" VerticalContentAlignment="Center" Padding="10"/>
+            </Grid>
+            <Button Content="Mentés" Padding="10" Margin="10,0,10,10" Background="LightSteelBlue"/>
+        </StackPanel>
+    </Grid>
+</Window>
