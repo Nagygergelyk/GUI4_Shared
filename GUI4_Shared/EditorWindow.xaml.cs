@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GUI4_Shared.Models;
+using GUI4_Shared.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,29 @@ namespace GUI4_Shared
         public EditorWindow()
         {
             InitializeComponent();
+        }
+        public EditorWindow(Hero hero)
+        {
+            InitializeComponent();
+            var vm = new EditorWindowViewModel();
+            vm.Setup(hero);
+            this.DataContext = vm;
+        }
+
+        private void Vm_EditedDone(object? sender, EventArgs e)
+        {
+            this.DialogResult = true;
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in stack.Children)
+            {
+                if (item is TextBox t)
+                {
+                    t.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+                }
+            }
+            this.DialogResult = true;
         }
     }
 }

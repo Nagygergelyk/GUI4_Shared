@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="EditorWindow" Height="350" Width="350">
     <Grid>
-        <StackPanel>
+        <StackPanel x:Name="stack">
             <Label Content="Név:" Padding="10" Background="LightGray"/>
             <TextBlock Padding="10"/>
             <Label Content="Ereje:" Padding="10" Background="LightGray"/>

@@ -4,8 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI4_Shared"
+        xmlns:helpers="clr-namespace:GUI4_Shared.Helper"
+        xmlns:vm="clr-namespace:GUI4_Shared.ViewModels"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <helpers:NumberToColorConverter x:Key="colorconvert" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -26,7 +34,7 @@
                                 <RowDefinition Height="1*" />
                                 <RowDefinition Height="1*" />
                             </Grid.RowDefinitions>
-                            <Label Content="{Binding Type}" FontSize="14" FontWeight="Bold" />
+                            <Label Content="{Binding Name}" FontSize="14" FontWeight="Bold" />
                             <Label Content="{Binding Power}" ContentStringFormat="Power: {0}" Grid.Row="1" />
                             <Label Content="{Binding Speed}" ContentStringFormat="Speed: {0}" Grid.Row="1" Grid.Column="1" />
                             <ProgressBar Maximum="10" Margin="10" Value="{Binding Power}" Foreground="{Binding Power, Converter={StaticResource colorconvert}}" Grid.Row="2" Height="10" />
@@ -37,8 +45,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
-            <Label HorizontalContentAlignment="Center" FontSize="14"
-                Content="{Binding AllCost}" ContentStringFormat="Cost: {0}$" />
             <Button Content="Send to war" Command="{Binding AddToArmyCommand}" Margin="10" Padding="10" />
             <Button Content="Send Home" Command="{Binding RemoveFromArmyCommand}" Margin="10" Padding="10" />
             <Button Content="Create Superhero" Command="{Binding EditTrooperCommand}" Margin="10" Padding="10" />
@@ -57,7 +63,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="{Binding Type}" />
+                        <Label Content="{Binding Name}" />
                         <Label Content="{Binding Power}" ContentStringFormat="[{0}]" />
                         <Label Content="{Binding Speed}" ContentStringFormat="[{0}]" />
                     </StackPanel>

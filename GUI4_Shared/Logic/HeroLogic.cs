@@ -1,4 +1,6 @@
 ﻿using GUI4_Shared.Models;
+using GUI4_Shared.Services;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,28 +11,52 @@ namespace GUI4_Shared.Logic
 {
     public class HeroLogic : IHeroLogic
     {
-        public double AVGPower => throw new NotImplementedException();
+        IList<Hero> barracks;
+        IList<Hero> army;
+        IMessenger messenger;
+        IHeroEditorService editorService;
+        public void SetupCollections(IList<Hero> barracks, IList<Hero> army)
+        {
+            this.barracks = barracks;
+            this.army = army;
+        }
+        public HeroLogic(IMessenger messenger, IHeroEditorService editorService)
+        {
+            this.messenger = messenger;
+            this.editorService = editorService;
+        }
+        public double AVGPower
+        {
+            get
+            {
+                return Math.Round(army.Count == 0 ? 0 : army.Average(t => t.Power), 2);
+            }
+        }
 
-        public double AVGSpeed => throw new NotImplementedException();
-
+        public double AVGSpeed
+        {
+            get
+            {
+                return Math.Round(army.Count == 0 ? 0 : army.Average(t => t.Speed), 2);
+            }
+        }
         public void CreateSuperhero(Hero hero)
         {
-            throw new NotImplementedException();
+            editorService.Edit(hero);
         }
 
         public void SendHome(Hero hero)
         {
-            throw new NotImplementedException();
+            army.Remove(hero);
+            messenger.Send("Hero removed", "TrooperInfo");
         }
 
         public void SendToWar(Hero hero)
         {
-            throw new NotImplementedException();
+            army.Add(hero.GetCopy());
+            messenger.Send("Hero added", "TrooperInfo");
         }
 
-        public void SetupCollections(IList<Hero> barracks, IList<Hero> army)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
